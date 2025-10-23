@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loyihalarim — Shixnazar</title>
+  <!-- Agar oldingi style.css bor bo'lsa uni ishlating -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* projects.html uchun kichik qo'shimchalar (kerak bo'lsa style.css ga ko'chiring) */
+    .projects-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #151522, #24304a);
+      color: #fff;
+    }
+    .projects-wrap {
+      width: 100%;
+      max-width: 900px;
+      background: rgba(255,255,255,0.04);
+      padding: 25px;
+      border-radius: 12px;
+    }
+    .project-list { display: grid; gap: 15px; }
+    .project-card {
+      background: rgba(255,255,255,0.03);
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .clock-big {
+      font-size: 3rem;
+      color: #00d4ff;
+      text-align: center;
+      margin: 20px 0;
+      letter-spacing: 3px;
+    }
+    .top-bar {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-bottom:10px;
+    }
+    .back-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="projects-page">
+    <div class="projects-wrap">
+      <div class="top-bar">
+        <h2>🚀 Mening loyihalarim</h2>
+        <a href="index.html" class="back-btn">⬅️ Asosiy sahifaga</a>
+      </div>
+
+      <div class="project-list">
+
+        <!-- Mini loyiha 1: Live Clock (faqat shu sahifada ko'rinadi) -->
+        <div class="project-card" id="clockCard">
+          <h3>🕒 Live Clock App</h3>
+          <p>Bu loyiha joriy vaqtni ko‘rsatadi. «Loyihani ochish» tugmasini bosing.</p>
+          <button onclick="openClock()" class="outline">Loyihani ochish</button>
+
+          <div id="clockArea" class="hidden" style="margin-top:15px;">
+            <div class="clock-big" id="clock">00:00:00</div>
+            <div style="text-align:center;">
+              <button onclick="closeClock()" class="outline">Ortga</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agar xohlasangiz yana loyihalarni shu yerga qo'shish mumkin -->
+        <div class="project-card">
+          <h3>🎨 Rang o'zgartiruvchi (misol)</h3>
+          <p>Kichik demo — sahifa fondini tugma orqali oʻzgartiradi.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="projects.js"></script>
+</body>
+</html>

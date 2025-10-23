@@ -1,11 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mening Portfoliyom</title>
+
+  <!-- CSS bilan bog‘lash -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="div">div</div>
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(135deg, #1e1e2f, #2d2d44);
+  color: #fff;
+  overflow: hidden; /* scrollni yo‘q qiladi */
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  text-align: center;
+  max-width: 600px;
+  animation: fadeIn 1.2s ease;
+}
+
+.profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #00d4ff;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h1 span {
+  color: #00d4ff;
+}
+
+.job {
+  font-size: 1.1rem;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+.about {
+  margin: 20px 0;
+  color: #ccc;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #00d4ff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #009ecb;
+}
+
+button.outline {
+  background: transparent;
+  border: 2px solid #00d4ff;
+}
+
+button.outline:hover {
+  background: #00d4ff;
+  color: #fff;
+}
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔹 Loyihalar va soat */
+.projects {
+  margin-top: 25px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 20px;
+  animation: fadeIn 0.7s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.clock {
+  font-size: 2rem;
+  margin: 20px 0;
+  color: #00d4ff;
+  letter-spacing: 2px;
+}
+
+/* Havolalardagi (a) tagining pastki chizig‘ini o‘chirish */
+a {
+  text-decoration: none;
+  color: inherit; /* mavjud matn rangini saqlaydi */
+}
+
+/* Agar sizda .outline-link klassi bo‘lsa, yanada aniqroq yozamiz: */
+.outline-link {
+  text-decoration: none;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.outline-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+    </style>
+
+ <!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mening Portfoliyom</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <div class="content">
+      <h1>Salom, men <span>Madina</span></h1>
+      <p class="job">💻 Veb dasturchi | Dizayner | Innovator</p>
+      <p class="about">
+        Men zamonaviy texnologiyalar yordamida veb-ilovalar va o‘yinlar yaratishni yoqtiraman.  
+        HTML, CSS, JavaScript va Python (Django) bilan ishlayman.
+      </p>
+      
+  <div id="clockProject" class="hidden">
+    <h3>⏰ Live Clock</h3>
+    <div class="clock" id="clock">00:00:00</div>
+    <button class="outline" onclick="closeClock()">Ortga</button>
+  </div>
+</div>
+
+
+      <div class="buttons">
+        <button onclick="showAlert()">Aloqa</button>
+      <a href="projects.html" class="outline-link">Loyihalarim</a>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Shixnazar | Barcha huquqlar himoyalangan.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+  <!-- JavaScript bilan bog‘lash -->
+  <script>
+   function showAlert() {
+  alert("Rahmat! Tez orada siz bilan bog‘lanaman 😊");
+}
+
+//  Soat funksiyasi
+function updateClock() {
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2, "0");
+  const m = String(now.getMinutes()).padStart(2, "0");
+  const s = String(now.getSeconds()).padStart(2, "0");
+  document.getElementById("clock").textContent = `${h}:${m}:${s}`;
+}
+// 🎯 Loyihalar bo‘limini ko‘rsatish/yashirish
+function toggleProjects() {
+  const section = document.getElementById("projects");
+  section.classList.toggle("hidden");
+}
+
+// ⏰ Soat funksiyasi
+function updateClock() {
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2, "0");
+  const m = String(now.getMinutes()).padStart(2, "0");
+  const s = String(now.getSeconds()).padStart(2, "0");
+  document.getElementById("clock").textContent = `${h}:${m}:${s}`;
+}
+
+// 🎯 Loyihani ochish va yopish
+function openClock() {
+  document.getElementById("clockProject").classList.remove("hidden");
+  setInterval(updateClock, 1000);
+  updateClock();
+}
+
+function closeClock() {
+  document.getElementById("clockProject").classList.add("hidden");
+}
+
+
+
+  </script>
 </body>
 </html>
